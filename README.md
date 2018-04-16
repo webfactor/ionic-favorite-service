@@ -1,27 +1,47 @@
 # IonicFavoriteService
+Adds functionality to store favorites on the users device by using ionic-storage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+## Installation
+- Install `@webfactor/ionic-favorite-service` via npm.
+- Add `FavoriteServiceModule.forRoot()` to your Ionic module imports.
 
-## Development server
+## Methods
+``` typescript
+    public getFavorites(): { id: number }[]
+```
+returns all stored favorites.
+``` typescript
+    public add(favorite: { id: number })
+```
+adds the object to the favorites.
+``` typescript
+    public remove(favorite: { id: number})
+``` 
+removes the object from the favorites.
+``` typescript
+    public toggle(favorite: { id: number})
+```
+remove the object if it's already in the favorites, else add it.
+``` typescript
+    public includes(favorite: { id: number})
+```
+checks if the object is already in the favorites.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Example
+``` typescript
+export class HomePage {
+    food: any = {id: 1, name: 'Pizza'};
+    constructor(private favoriteService: FavoriteService) {}
+}
+```
 
-## Code scaffolding
+``` html
+<button padding ion-button icon-right (click)="favoriteService.toggle(food)">
+    {{food.name}}
+    <ion-icon [name]="favoriteService.includes(food) ? 'heart' : 'heart-outline'">
+    </ion-icon>
+</button>
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![FavoriteButton1](https://github.com/webfactor/ionic-lib/blob/master/screenshots/favorite-service-1.png)
+![FavoriteButton2](https://github.com/webfactor/ionic-lib/blob/master/screenshots/favorite-service-2.png)

@@ -16,11 +16,14 @@ export class FavoriteService {
             .catch(() => (this.favorites = []));
     }
 
-    public getFavorites() {
+    public getFavorites(): { id: number }[] {
         return this.favorites;
     }
 
     public add(favorite: { id: number }) {
+        if (this.includes(favorite)) {
+            return;
+        }
         this.favorites.push(favorite);
         this.persist();
     }
