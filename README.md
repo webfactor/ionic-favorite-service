@@ -7,23 +7,23 @@ Adds functionality to store favorites on the users device by using ionic-storage
 
 ## Methods
 ``` typescript
-    public getFavorites(): { id: number }[]
+public getFavorites(): { id: number }[]
 ```
 returns all stored favorites.
 ``` typescript
-    public add(favorite: { id: number })
+public add(favorite: { id: number })
 ```
 adds the object to the favorites.
 ``` typescript
-    public remove(favorite: { id: number})
+public remove(favorite: { id: number})
 ``` 
 removes the object from the favorites.
 ``` typescript
-    public toggle(favorite: { id: number})
+public toggle(favorite: { id: number})
 ```
 remove the object if it's already in the favorites, else add it.
 ``` typescript
-    public includes(favorite: { id: number})
+public includes(favorite: { id: number})
 ```
 checks if the object is already in the favorites.
 
