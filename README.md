@@ -44,4 +44,5 @@ export class HomePage {
 ```
 
 ![FavoriteButton1](https://github.com/webfactor/ionic-lib/blob/master/screenshots/favorite-service-1.png)
+<br>
 ![FavoriteButton2](https://github.com/webfactor/ionic-lib/blob/master/screenshots/favorite-service-2.png)
