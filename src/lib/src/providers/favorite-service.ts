@@ -6,22 +6,22 @@ export class FavoriteService {
     private favorites: { id: number }[] = [];
 
     constructor(public storage: Storage) {
-        this.getFavorites();
+        this.getFavoritesFromStorage();
     }
 
-    private getFavorites() {
+    private getFavoritesFromStorage() {
         this.storage
             .get('favorites')
             .then(value => (value ? (this.favorites = value) : (this.favorites = [])))
             .catch(() => (this.favorites = []));
     }
 
-    public ids() {
+    public getFavorites() {
         return this.favorites;
     }
 
     public add(favorite: { id: number }) {
-        (this.favorites).push(favorite);
+        this.favorites.push(favorite);
         this.persist();
     }
 

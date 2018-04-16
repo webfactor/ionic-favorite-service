@@ -12,7 +12,7 @@
     "module": "./esm5/ionic-favorite-service.es5.js",
     "typings": "./ionic-favorite-service.d.ts",
     "peerDependencies": {
-        "@angular/core": "^5.0.0",
+        "@angular/core": "^5.2.9",
         "@ionic/storage": "^2.1.3"
     }
 }
