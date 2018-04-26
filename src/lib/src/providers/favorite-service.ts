@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Favorite } from '../model/favorite';
 
 @Injectable()
 export class FavoriteService {
-    private favorites: { id: number }[] = [];
+    private favorites: Favorite[] = [];
 
     constructor(public storage: Storage) {
         this.getFavoritesFromStorage();
@@ -16,11 +17,11 @@ export class FavoriteService {
             .catch(() => (this.favorites = []));
     }
 
-    public getFavorites(): { id: number }[] {
+    public getFavorites(): Favorite[] {
         return this.favorites;
     }
 
-    public add(favorite: { id: number }) {
+    public add(favorite: Favorite) {
         if (this.includes(favorite)) {
             return;
         }
@@ -28,12 +29,12 @@ export class FavoriteService {
         this.persist();
     }
 
-    public remove(favorite: { id: number}) {
+    public remove(favorite: Favorite) {
         this.favorites = this.favorites.filter(fav => fav.id !== favorite.id);
         this.persist();
     }
 
-    public toggle(favorite: { id: number}) {
+    public toggle(favorite: Favorite) {
         if (this.includes(favorite)) {
             this.remove(favorite);
         } else {
@@ -42,7 +43,7 @@ export class FavoriteService {
         this.persist();
     }
 
-    public includes(favorite: { id: number}) {
+    public includes(favorite: Favorite) {
         return this.favorites.map(fav => fav.id).indexOf(favorite.id) >= 0;
     }
 
