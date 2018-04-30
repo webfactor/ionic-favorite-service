@@ -33,7 +33,7 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "flatModuleOutFile": "index.js",
-    "flatModuleId": "ionic-favorite-service",
+    "flatModuleId": "@webfactor/ionic-favorite-service",
     "skipTemplateCodegen": true
   }
 }
